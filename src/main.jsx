@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, HashRouter } from 'react-router-dom';
 import Layout from './Layout';
 import { Home, Cart, Productlist } from './components';
 import store from './store/store';
@@ -23,7 +23,9 @@ const routers = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={routers} />
+      <HashRouter>
+        <RouterProvider router={routers} />
+      </HashRouter>
     </Provider>
   </StrictMode>
 );

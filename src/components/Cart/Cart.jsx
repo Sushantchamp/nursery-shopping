@@ -8,8 +8,13 @@ const Cart = () => {
   const items = useSelector((state) => state.cart.items);
 
   const removeFromCartHandler = (itemId) => {
-    dispatch(removeFromCart(itemId));
+    const isConfirmed = window.confirm("Are you sure you want to remove this item from the cart?");
+
+    if (isConfirmed) {
+      dispatch(removeFromCart(itemId));
+    }
   };
+  
 
   const handleDecrement = (id) => {
     dispatch(decrementQuantity(id));
